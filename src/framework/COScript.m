@@ -16,6 +16,7 @@
 #import "MOMethod.h"
 #import "MOUndefined.h"
 #import "MOBridgeSupportController.h"
+#import "NSMetadataQuery+Synchronous.h"
 
 #import <stdarg.h>
 
@@ -547,21 +548,71 @@ NSString *currentCOScriptThreadIdentifier = @"org.jstalk.currentCOScriptHack";
     return [conn rootProxy];
 }
 
-+ (id)application:(NSString*)app {
-    
-    NSString *appPath = [[NSWorkspace sharedWorkspace] fullPathForApplication:app];
-    
-    if (!appPath) {
-        NSLog(@"Could not find application '%@'", app);
-        // fixme: why are we returning a bool?
-        return [NSNumber numberWithBool:NO];
++ (id)applicationForIdentifier:(NSString*)identifier {
+
+    // Try and see if there is an app running with this exact identifier
+    for (NSRunningApplication *app in [[NSWorkspace sharedWorkspace] runningApplications]) {
+        if ([app.bundleIdentifier isEqualToString:identifier]) {
+            return [self applicationForPath:app.bundleURL.path];
+        }
     }
     
-    NSBundle *appBundle = [NSBundle bundleWithPath:appPath];
+    NSMetadataQuery *query = [[NSMetadataQuery alloc] init];
+    NSString *predicateString = [NSString stringWithFormat:@"(kMDItemCFBundleIdentifier == '%@') && (kMDItemKind == 'Application')", identifier];
+    NSPredicate *predicate = [NSPredicate predicateFromMetadataQueryString:predicateString];
+    [query setPredicate:predicate];
+    
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"kMDItemLastUsedDate" ascending:NO];
+    [query setSortDescriptors:@[sortDescriptor]];
+    
+    NSArray *result = [query resultsSync];
+    NSArray *libraryPaths = NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES);
+    
+    // Filter out results that are in the user library folder, that would be weird.
+    result = [result filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(NSMetadataItem *item, NSDictionary *bindings) {
+        
+        NSString *path = [[item valueForKey:@"kMDItemPath"] stringByStandardizingPath];
+        
+        for (NSString *libraryPath in libraryPaths) {
+            if ([path hasPrefix:[libraryPath stringByStandardizingPath]]) {
+                return NO;
+            }
+        }
+        
+        return YES;
+    }]];
+    
+    if (result.count) {
+        return [self applicationForPath:[result[0] valueForKey:@"kMDItemPath"]];
+    }
+    
+    return nil;
+}
+
++ (id)application:(NSString*)name {
+    
+    // Try and see if there is an app running with this exact name
+    for (NSRunningApplication *app in [[NSWorkspace sharedWorkspace] runningApplications]) {
+        if ([app.localizedName isEqualToString:name]) {
+            return [self applicationForPath:app.bundleURL.path];
+        }
+    }
+
+    // Get the app from launch services if we don't have one running
+    return [self applicationForPath:[[NSWorkspace sharedWorkspace] fullPathForApplication:name]];
+}
+
++ (id)applicationForPath:(NSString*)path {
+
+    if (!path) {
+        return nil;
+    }
+    
+    NSBundle *appBundle = [NSBundle bundleWithPath:path];
     NSString *bundleId  = [appBundle bundleIdentifier];
     
     // make sure it's running
-	NSArray *runningApps = [[NSWorkspace sharedWorkspace] runningApplications];
+    NSArray *runningApps = [[NSWorkspace sharedWorkspace] runningApplications];
     
     BOOL found = NO;
     
@@ -574,19 +625,20 @@ NSString *currentCOScriptThreadIdentifier = @"org.jstalk.currentCOScriptHack";
         
     }
     
-	if (!found) {
+    if (!found) {
         BOOL launched = [[NSWorkspace sharedWorkspace] launchAppWithBundleIdentifier:bundleId
                                                                              options:NSWorkspaceLaunchWithoutActivation | NSWorkspaceLaunchAsync
                                                       additionalEventParamDescriptor:nil
                                                                     launchIdentifier:nil];
         if (!launched) {
-            NSLog(@"Could not open up %@", appPath);
+            NSLog(@"Could not open up %@", path);
             return nil;
         }
     }
     
     
     return [self applicationOnPort:[NSString stringWithFormat:@"%@.JSTalk", bundleId]];
+    
 }
 
 + (id)app:(NSString*)app {
