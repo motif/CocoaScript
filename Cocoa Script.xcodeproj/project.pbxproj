@@ -9,11 +9,11 @@
 /* Begin PBXBuildFile section */
 		384830E21832D48500B34168 /* COSTarget.h in Headers */ = {isa = PBXBuildFile; fileRef = 384830E01832D48500B34168 /* COSTarget.h */; };
 		384830E31832D48500B34168 /* COSTarget.m in Sources */ = {isa = PBXBuildFile; fileRef = 384830E11832D48500B34168 /* COSTarget.m */; };
-		5DC4E84F1CC25DC0006F42FB /* NSMetadataQuery+Synchronous.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DC4E84D1CC25DC0006F42FB /* NSMetadataQuery+Synchronous.h */; };
-		5DC4E8501CC25DC0006F42FB /* NSMetadataQuery+Synchronous.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC4E84E1CC25DC0006F42FB /* NSMetadataQuery+Synchronous.m */; };
-		5DC4E8511CC25DC0006F42FB /* NSMetadataQuery+Synchronous.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC4E84E1CC25DC0006F42FB /* NSMetadataQuery+Synchronous.m */; };
-		5DC4E8521CC25DC0006F42FB /* NSMetadataQuery+Synchronous.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC4E84E1CC25DC0006F42FB /* NSMetadataQuery+Synchronous.m */; };
-		5DC4E8531CC25DC0006F42FB /* NSMetadataQuery+Synchronous.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC4E84E1CC25DC0006F42FB /* NSMetadataQuery+Synchronous.m */; };
+		5D5CB0741CD35C5E00CBB5BB /* NSMetadataQuery+Synchronous.h in Headers */ = {isa = PBXBuildFile; fileRef = 5D5CB0721CD35C5E00CBB5BB /* NSMetadataQuery+Synchronous.h */; };
+		5D5CB0751CD35C5E00CBB5BB /* NSMetadataQuery+Synchronous.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D5CB0731CD35C5E00CBB5BB /* NSMetadataQuery+Synchronous.m */; };
+		5D5CB0761CD35C5E00CBB5BB /* NSMetadataQuery+Synchronous.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D5CB0731CD35C5E00CBB5BB /* NSMetadataQuery+Synchronous.m */; };
+		5D5CB0771CD35C5E00CBB5BB /* NSMetadataQuery+Synchronous.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D5CB0731CD35C5E00CBB5BB /* NSMetadataQuery+Synchronous.m */; };
+		5D5CB0781CD35C5E00CBB5BB /* NSMetadataQuery+Synchronous.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D5CB0731CD35C5E00CBB5BB /* NSMetadataQuery+Synchronous.m */; };
 		8D15AC340486D014006FF6A4 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A7FEA54F5311CA2CBB /* Cocoa.framework */; };
 		9FC343CD1AF7D2FE00B53759 /* CocoaScript.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC41431A0F25254200E46669 /* CocoaScript.framework */; };
 		9FC343D51AF7D32B00B53759 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9FC343D31AF7D32B00B53759 /* Model.xcdatamodeld */; };
@@ -406,8 +406,8 @@
 		2A37F4C5FDCFA73011CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		384830E01832D48500B34168 /* COSTarget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = COSTarget.h; path = src/framework/COSTarget.h; sourceTree = "<group>"; };
 		384830E11832D48500B34168 /* COSTarget.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = COSTarget.m; path = src/framework/COSTarget.m; sourceTree = "<group>"; };
-		5DC4E84D1CC25DC0006F42FB /* NSMetadataQuery+Synchronous.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMetadataQuery+Synchronous.h"; sourceTree = "<group>"; };
-		5DC4E84E1CC25DC0006F42FB /* NSMetadataQuery+Synchronous.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMetadataQuery+Synchronous.m"; sourceTree = "<group>"; };
+		5D5CB0721CD35C5E00CBB5BB /* NSMetadataQuery+Synchronous.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSMetadataQuery+Synchronous.h"; path = "src/framework/NSMetadataQuery+Synchronous.h"; sourceTree = "<group>"; };
+		5D5CB0731CD35C5E00CBB5BB /* NSMetadataQuery+Synchronous.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSMetadataQuery+Synchronous.m"; path = "src/framework/NSMetadataQuery+Synchronous.m"; sourceTree = "<group>"; };
 		8D15AC370486D014006FF6A4 /* Cocoa Script Editor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Cocoa Script Editor.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FC343C71AF7D2FE00B53759 /* CocoaScriptTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CocoaScriptTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FC343CA1AF7D2FE00B53759 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -816,8 +816,8 @@
 		5DC4E84C1CC25DAF006F42FB /* Categories */ = {
 			isa = PBXGroup;
 			children = (
-				5DC4E84D1CC25DC0006F42FB /* NSMetadataQuery+Synchronous.h */,
-				5DC4E84E1CC25DC0006F42FB /* NSMetadataQuery+Synchronous.m */,
+				5D5CB0721CD35C5E00CBB5BB /* NSMetadataQuery+Synchronous.h */,
+				5D5CB0731CD35C5E00CBB5BB /* NSMetadataQuery+Synchronous.m */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -1218,7 +1218,6 @@
 				CC66D89C181A2B0A0039A0A5 /* MOAllocator.h in Headers */,
 				CC66D80E181A2A470039A0A5 /* TDWhitespaceState.h in Headers */,
 				CC66D812181A2A470039A0A5 /* TDWordOrReservedState.h in Headers */,
-				5DC4E84F1CC25DC0006F42FB /* NSMetadataQuery+Synchronous.h in Headers */,
 				CC66D868181A2AE10039A0A5 /* MochaDefines.h in Headers */,
 				CCD38349195A454F00C436B9 /* COSDatabaseQueue.h in Headers */,
 				CC66D7F2181A2A470039A0A5 /* TDSpecificChar.h in Headers */,
@@ -1295,6 +1294,7 @@
 				CC66D83E181A2A9B0039A0A5 /* COSQuickCIFilter.h in Headers */,
 				CC66D806181A2A470039A0A5 /* TDTokenizerState.h in Headers */,
 				CC66D83C181A2A9B0039A0A5 /* COSOpenCLProgram.h in Headers */,
+				5D5CB0741CD35C5E00CBB5BB /* NSMetadataQuery+Synchronous.h in Headers */,
 				CC66D872181A2AF30039A0A5 /* MOFunctionArgument.h in Headers */,
 				CC66D7DE181A2A470039A0A5 /* TDParser.h in Headers */,
 				CC66D8B0181A2B0A0039A0A5 /* MOObjCRuntime.h in Headers */,
@@ -1494,7 +1494,7 @@
 				CC66D8D1181A2E2F0039A0A5 /* JSTDocumentController.m in Sources */,
 				CC66D8D5181A2E2F0039A0A5 /* JSTTextView.m in Sources */,
 				CC66D8D2181A2E2F0039A0A5 /* JSTFileWatcher.m in Sources */,
-				5DC4E8501CC25DC0006F42FB /* NSMetadataQuery+Synchronous.m in Sources */,
+				5D5CB0751CD35C5E00CBB5BB /* NSMetadataQuery+Synchronous.m in Sources */,
 				CC66D8D6181A2E2F0039A0A5 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1504,7 +1504,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9FC343D71AF7D33300B53759 /* CSPropertyTests.m in Sources */,
-				5DC4E8531CC25DC0006F42FB /* NSMetadataQuery+Synchronous.m in Sources */,
+				5D5CB0781CD35C5E00CBB5BB /* NSMetadataQuery+Synchronous.m in Sources */,
 				9FC343D51AF7D32B00B53759 /* Model.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1534,6 +1534,7 @@
 				CC66D7FF181A2A470039A0A5 /* TDToken.m in Sources */,
 				CC66D835181A2A9B0039A0A5 /* COSCIImageAdditions.m in Sources */,
 				CC66D83B181A2A9B0039A0A5 /* COSOpenCLContext.m in Sources */,
+				5D5CB0771CD35C5E00CBB5BB /* NSMetadataQuery+Synchronous.m in Sources */,
 				CC66D803181A2A470039A0A5 /* TDTokenAssembly.m in Sources */,
 				CC66D7BC181A2A470039A0A5 /* TDAny.m in Sources */,
 				CC66D8AC181A2B0A0039A0A5 /* MOMethod.m in Sources */,
@@ -1571,7 +1572,6 @@
 				CC66D7F5181A2A470039A0A5 /* TDSymbol.m in Sources */,
 				CC66D811181A2A470039A0A5 /* TDWord.m in Sources */,
 				CC66D8AF181A2B0A0039A0A5 /* MOMethodDescription.m in Sources */,
-				5DC4E8521CC25DC0006F42FB /* NSMetadataQuery+Synchronous.m in Sources */,
 				CC66D7D4181A2A470039A0A5 /* TDLowercaseWord.m in Sources */,
 				CC66D7BE181A2A470039A0A5 /* TDAssembly.m in Sources */,
 				CC66D8A1181A2B0A0039A0A5 /* MOClassDescription.m in Sources */,
@@ -1620,6 +1620,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5D5CB0761CD35C5E00CBB5BB /* NSMetadataQuery+Synchronous.m in Sources */,
 				CCF4DBE118296AB800ACB9EC /* Mocha.m in Sources */,
 				CCF4DBE218296AB800ACB9EC /* MochaRuntime.m in Sources */,
 				CC9FEF94182969B9009DB0F9 /* MOBridgeSupportController.m in Sources */,
@@ -1703,7 +1704,6 @@
 				CC9FF02118296A2B009DB0F9 /* TDWhitespaceState.m in Sources */,
 				CC9FF02318296A2B009DB0F9 /* TDWord.m in Sources */,
 				CC9FF02518296A2B009DB0F9 /* TDWordOrReservedState.m in Sources */,
-				5DC4E8511CC25DC0006F42FB /* NSMetadataQuery+Synchronous.m in Sources */,
 				CC9FF02718296A2B009DB0F9 /* TDWordState.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
